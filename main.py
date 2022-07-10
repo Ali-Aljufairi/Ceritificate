@@ -3,7 +3,7 @@ import img2pdf
 import os
 
 
-def Generate_Certificate(names: list, certificate: str, font_path: str, font_color: tuple, text_y_position: int):
+def Generate_Certificate(names: list, certificate: str, font_path: str, font_color: tuple, text_y_position: int , font_size: int):
     for name in names:
         text_y_position = text_y_position
 
@@ -17,16 +17,14 @@ def Generate_Certificate(names: list, certificate: str, font_path: str, font_col
 
         font = ImageFont.truetype(
             font_path,
-            # size=int(image_width / 10),
-            100
+            font_size,
         )
 
-        text_width, _ = draw.textsize(name, font=font)
+        # text_width, _ = draw.textsize(name, font=font)
 
         draw.text(
             (
-
-                (image_width - text_width) / 2,
+                (image_width -draw.textlength(name, font=font)) / 2,
                 text_y_position,
             ),
             name,
@@ -59,14 +57,13 @@ if __name__ == "__main__":
         NAMES.pop(-1)
         NAMES.sort()
 
-
-
-    text_y_position = 725
+    text_y_position = 500
     color = (99, 176, 203)
     FONT = "Font/Arvo-Regular.ttf"
+    FONT_SIZE = 100
     CERTIFICATE = "Sample Certificate/Certifccate.png"
 
-    Generate_Certificate(NAMES, CERTIFICATE, FONT, color, text_y_position)
+    Generate_Certificate(NAMES, CERTIFICATE, FONT, color, text_y_position, FONT_SIZE)
 
 #
 #     dirname = "Genrated Certificates"

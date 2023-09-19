@@ -1,11 +1,23 @@
 from PIL import Image, ImageFont, ImageDraw
-import img2pdf
-import os
-def Generate_Certificate(names: list, certificate: str, font_path: str, color:tuple , text_y_position: int , font_size: int):
-    for name in names:
-        text_y_position = text_y_position
 
-        img = Image.open(certificate, mode='r')
+
+def Generate_Certificate(
+    data: list,
+    certificate: str,
+    font_path_name: str,
+    font_path_project: str,
+    color: tuple,
+    Name_position: int,
+    font_size_name: int,
+    font_size_project: int,
+    Project_Position: int,
+) -> None:
+    for name, project in data:
+        File_Name = name
+        Name_position = Name_position
+        Project_Position = Project_Position
+
+        img = Image.open(certificate, mode="r")
 
         image_width = img.width
 
@@ -13,20 +25,33 @@ def Generate_Certificate(names: list, certificate: str, font_path: str, color:tu
 
         draw = ImageDraw.Draw(img)
 
-        font = ImageFont.truetype(
-            font_path,
-            font_size,
+        Namefont = ImageFont.truetype(
+            font_path_name,
+            font_size_name,
         )
 
-
+        Projectfont = ImageFont.truetype(
+            font_path_project,
+            font_size_project,
+        )
+        draw.text(
+            (
+                (image_width - draw.textlength(name, font=Namefont)) / 2,
+                Project_Position,
+            ),
+            project,
+            color,
+            font=Projectfont,
+        )
 
         draw.text(
             (
-                (image_width -draw.textlength(name, font=font)) / 2,
-                text_y_position,
+                (image_width - draw.textlength(name, font=Namefont)) / 2,
+                Name_position,
             ),
             name,
-            color ,
-            font=font)
+            color,
+            font=Namefont,
+        )
 
         img.save("Genrated Certificates/{}.png".format(name))

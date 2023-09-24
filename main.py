@@ -10,7 +10,7 @@ def main():
     rcolor = tuple(int(COLOR[i : i + 2], 16) for i in (0, 2, 4))
 
     # text_y_position = int(input("Enter the text y position: "))
-    font_size = 100
+    font_size = 80
     text_y_position = 620
     # font_size = int(input("Enter the font size: "))
 

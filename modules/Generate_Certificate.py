@@ -9,12 +9,12 @@ def Generate_Certificate(
     color: tuple,
     Name_position: int,
     font_size_name: int,
-    project_font: str,
-    project_font_size: int,
-    project_position: int,
+    # project_font: str,
+    # project_font_size: int,
+    # project_position: int,
     
 ) -> None:
-    for name,project in data:
+    for name in data:
         Name_position = Name_position
         
 
@@ -31,10 +31,10 @@ def Generate_Certificate(
             font_size_name,
         )
 
-        projectfont = ImageFont.truetype(
-            project_font,
-            project_font_size,
-        )
+        # projectfont = ImageFont.truetype(
+            # project_font,
+            # project_font_size,
+        # )
         draw.text(
             (
                 (image_width - draw.textlength(name, font=Namefont)) / 2,
@@ -45,14 +45,14 @@ def Generate_Certificate(
             font=Namefont,
         )
         
-        draw.text(
-            (
-                (image_width - draw.textlength(project, font=projectfont)) / 2,
-                project_position,
-            ),
-            project,
-            color,
-            font= projectfont,
-        )
+        # draw.text(
+            # (
+                # (image_width - draw.textlength(project, font=projectfont)) / 2,
+                # project_position,
+            # ),
+            # project,
+            # color,
+            # font= projectfont,
+        # )
 
         img.save("Genrated Certificates/{}.png".format(name))

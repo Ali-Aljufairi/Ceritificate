@@ -9,9 +9,9 @@ def Generate_Certificate(
     color: tuple,
     Name_position: int,
     font_size_name: int,
-    # project_font: str,
-    # project_font_size: int,
-    # project_position: int,
+    project_font: str,
+    project_font_size: int,
+    project_position: int,
     
 ) -> None:
     for name in data:
@@ -29,7 +29,7 @@ def Generate_Certificate(
         Namefont = ImageFont.truetype(
             font_path_name,
             font_size_name,
-        )
+            )
 
         # projectfont = ImageFont.truetype(
             # project_font,

@@ -1,6 +1,7 @@
 *.png
 *.pdf
 *.ttf
+*.zip
 /venv/
 .vscode/
 /__pycache__/

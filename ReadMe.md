@@ -1,4 +1,3 @@
-GitHub Copilot: Sure! Here's the modified `README.md` file with the information you provided:
 
 # Certificate Generator
 

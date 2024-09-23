@@ -2,6 +2,7 @@
 *.pdf
 *.ttf
 *.zip
+*.csv
 /venv/
 .vscode/
 /__pycache__/
